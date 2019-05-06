@@ -1,0 +1,12 @@
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+.Filtros{
+    background: #f1e9e9;
+}
+h3{
+    text-align: center;
+}

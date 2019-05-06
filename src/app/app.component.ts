@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+declare var jQuery:any;
+declare var $:any;
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'WikiFrontend';
+  ngOnInit() {
+    $('#myModal').modal('show');
+  }
+  abrir(){
+    $('#myModal').modal('show');
+  }
 }
+  

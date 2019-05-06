@@ -1,21 +1,133 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
 
-<router-outlet></router-outlet>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <title>Wiki</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2BA2FF;">
+    <div class="col-md-10">
+      <a class="navbar-brand" href="#" style="color: white">Wiki Multimedia</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#myModal" (click)="abrir">Iniciar Sesión </button>
+    </div>
+  </nav>
+
+  <section class="Filtros">
+    <div class="container">
+      <div class="row abs-center" style="padding-top: 22px;">
+        <div class="input-group col-md-3">
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Semestre..</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="input-group col-md-3">
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Materia</option>
+            <option value="1">Diseño</option>
+            <option value="2">Dibujo</option>
+            <option value="3">Photoshop</option>
+          </select>
+        </div>
+      </div>
+      <div class="row abs-center">
+        <div class="input-group col-md-6" style="padding-bottom: 20px;">
+          <input type="text" class="form-control" placeholder="Concepto" aria-label="Concepto"
+            aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="button-addon2">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3>Resultados</h3>
+    <div class="row abs-center">
+      <div class="card w-75">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+      <div class="card w-75">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+      <div class="card w-75">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+      <div class="card w-75">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+      <div class="card w-75">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+      <div class="card w-75">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+    </div>
+  </section>
+   <!-- The Modal -->
+   <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          Modal body..
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
