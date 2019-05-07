@@ -5,21 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
   <title>Wiki</title>
+
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2BA2FF;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <div class="col-md-10">
       <a class="navbar-brand" href="#" style="color: white">Wiki Multimedia</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
     </div>
     <div class="col-md-2">
-      <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#myModal" (click)="abrir">Iniciar Sesión </button>
+      <button type="button" class="btn btn-light float-right" data-toggle="modal" data-target="#exampleModal">Iniciar
+        Sesión</button>
     </div>
   </nav>
 
@@ -44,11 +42,11 @@
         </div>
       </div>
       <div class="row abs-center">
-        <div class="input-group col-md-6" style="padding-bottom: 20px;">
-          <input type="text" class="form-control" placeholder="Concepto" aria-label="Concepto"
-            aria-describedby="button-addon2">
+        <div class="input-group abs-center">
+          <input class="form-control" autocomplete [config]="config2" [items]="items2" placeholder="Concepto"
+            (inputChangedEvent)="onInputChangedEvent($event)" (selectEvent)="onSelect($event)">
           <div class="input-group-append">
-            <button class="btn btn-primary" type="button" id="button-addon2">
+            <button type="submit" class="btn btn-primary">
               <i class="fa fa-search"></i>
             </button>
           </div>
@@ -57,77 +55,80 @@
     </div>
   </section>
   <section>
-    <h3>Resultados</h3>
+    <h3 style="font-weight: bold">Resultados</h3>
     <div class="row abs-center">
       <div class="card w-75">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Button</a>
+          <div class="col-md-10">
+            <h5 class="card-title">Multimedia</h5>
+            <p class="card-text">La Multimedia bla bla bla</p>
+          </div>
+          <div class="col-md-2 ">
+            <a href="#" class="btn btn-light float-right">Leer Mas</a>
+          </div>
         </div>
       </div>
       <div class="card w-75">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Button</a>
+          <div class="col-md-10">
+            <h5 class="card-title">Multimedia</h5>
+            <p class="card-text">La Multimedia bla bla bla</p>
+          </div>
+          <div class="col-md-2 ">
+            <a href="#" class="btn btn-light float-right">Leer Mas</a>
+          </div>
         </div>
       </div>
       <div class="card w-75">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Button</a>
-        </div>
-      </div>
-      <div class="card w-75">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Button</a>
-        </div>
-      </div>
-      <div class="card w-75">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Button</a>
-        </div>
-      </div>
-      <div class="card w-75">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Button</a>
+          <div class="col-md-10">
+            <h5 class="card-title">Multimedia</h5>
+            <p class="card-text">La Multimedia bla bla bla</p>
+          </div>
+          <div class="col-md-2 ">
+            <a href="#" class="btn btn-light float-right">Leer Mas</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
-   <!-- The Modal -->
-   <div class="modal" id="myModal">
-    <div class="modal-dialog">
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-header bg-primary">
+          <h5 class="modal-title" id="exampleModalLabel" style="color:#fff">Iniciar Sesión</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        
-        <!-- Modal body -->
         <div class="modal-body">
-          Modal body..
+          <div class="container">
+            <div class="row abs-center" style="padding: 15px">
+              <div class="form-group col-md-7">
+                <input type="text" class="form-control" placeholder="Tu Email *" value="" />
+              </div>
+              <div class="form-group col-md-7">
+                <input type="password" class="form-control" placeholder="Tu Password *" value="" />
+              </div>
+            </div>
+            <div class="row abs-center">
+              <input type="submit" class="btnSubmit bg-primary" value="Login" />
+            </div>
+          </div>
         </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
       </div>
     </div>
   </div>
+  <footer class="page-footer font-small bg-primary">
 
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright
+    </div>
+    <!-- Copyright -->
+
+  </footer>
 </body>
 
 </html>

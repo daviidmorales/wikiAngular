@@ -5,17 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { LoginComponent } from './login/login.component';
+
+import { AutocompleteModule } from 'ng2-input-autocomplete';
+import { MateriaComponent } from './materia/materia.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    MateriaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    AutocompleteModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
