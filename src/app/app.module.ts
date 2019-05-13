@@ -9,6 +9,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AutocompleteModule } from 'ng2-input-autocomplete';
 import { MateriaComponent } from './materia/materia.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import { MateriaComponent } from './materia/materia.component';
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
-    AutocompleteModule.forRoot()
+    AutocompleteModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
