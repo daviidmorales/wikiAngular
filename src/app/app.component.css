@@ -40,6 +40,7 @@ footer{
 }
 .card-body{
   display: inline-flex;
+  width: 100%;
 }
 .card-title{
   font-weight: bold;

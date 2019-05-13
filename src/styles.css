@@ -6,3 +6,10 @@
 .test li {
   color: black;
 }
+
+.test input[type="text"]{
+    width: 85%;
+}
+.abs-center div{
+    width: 65%;
+}
