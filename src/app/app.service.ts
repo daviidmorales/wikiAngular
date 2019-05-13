@@ -11,7 +11,7 @@ export class AppService {
   public endPointService: string = environment.apiUrl;
   public clientHeaders: HttpHeaders;
 
-  constructor(private _http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   SetEndPoint(nameServer: string) {
     this.endPointService = nameServer;
@@ -23,27 +23,23 @@ export class AppService {
       EndPointRequest += tuple + '=' + methodParams[tuple] + '&';
     }
     let tokenStorage = 'Bearer ';
+    // tslint:disable-next-line:max-line-length
     tokenStorage += (environment.clientStorageType === 'SESSION') ? sessionStorage.getItem('applicationCurrentUser') : localStorage.getItem('applicationCurrentUser');
-    const headers =  new HttpHeaders().set('Authorization', tokenStorage);
-    return this._http.get(EndPointRequest.slice(0, -1), { headers });
+    const headers = new HttpHeaders().set('Authorization', tokenStorage);
+    return this.http.get(EndPointRequest.slice(0, -1), { headers });
   }
 
   Post(methodService: string, methodParams: object): Observable<any> {
-    let tokenStorage = 'Bearer ';
     const EndPointRequest = `${this.endPointService}${methodService}`;
-     tokenStorage += (environment.clientStorageType === 'SESSION') ?
-      sessionStorage.getItem('applicationCurrentUser') :
-      localStorage.getItem('applicationCurrentUser');
-    const headers = new HttpHeaders().set('Authorization', tokenStorage);
-    return this._http.post(EndPointRequest, methodParams, { headers });
+    return this.http.post(EndPointRequest, methodParams);
   }
 
   Put(methodService: string, methodParams: object): Observable<any> {
     const EndPointRequest = `${this.endPointService}${methodService}`;
-    const headers = 
+    const headers =
       new HttpHeaders().set('Authorization',
-        localStorage.getItem('applicationCurrentUser')); 
-    return this._http.put(EndPointRequest, methodParams, { headers });
+        localStorage.getItem('applicationCurrentUser'));
+    return this.http.put(EndPointRequest, methodParams, { headers });
   }
 
   Delete(methodService: string, methodParams: HttpParams): Observable<any> {
@@ -52,8 +48,9 @@ export class AppService {
       EndPointRequest += tuple + '=' + methodParams[tuple] + '&';
     }
     let tokenStorage = 'Bearer ';
+    // tslint:disable-next-line:max-line-length
     tokenStorage += (environment.clientStorageType === 'SESSION') ? sessionStorage.getItem('applicationCurrentUser') : localStorage.getItem('applicationCurrentUser');
-    const headers =  new HttpHeaders().set('Authorization', tokenStorage); 
-    return this._http.delete(EndPointRequest.slice(0, -1), { headers });
+    const headers = new HttpHeaders().set('Authorization', tokenStorage);
+    return this.http.delete(EndPointRequest.slice(0, -1), { headers });
   }
 }
