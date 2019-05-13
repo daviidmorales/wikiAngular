@@ -43,8 +43,7 @@
       </div>
       <div class="row abs-center">
         <div class="input-group abs-center col-md-6">
-          <input class="form-control" autocomplete [config]="config2" [items]="items2" placeholder="Concepto"
-            (inputChangedEvent)="onInputChangedEvent($event)" (selectEvent)="onSelect($event)">
+
           <div class="input-group-append col-md-2">
             <button type="submit" class="btn btn-primary">
               <i class="fa fa-search"></i>
@@ -114,7 +113,7 @@
               </div>
             </div>
             <div class="row abs-center">
-              <input type="submit" class="btnSubmit bg-primary" value="Login" />
+              <input type="submit" class="btnSubmit bg-primary" value="Login" (click)="login()" />
             </div>
           </div>
         </div>

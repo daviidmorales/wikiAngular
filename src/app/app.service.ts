@@ -30,6 +30,7 @@ export class AppService {
   }
 
   Post(methodService: string, methodParams: object): Observable<any> {
+    debugger;
     const EndPointRequest = `${this.endPointService}${methodService}`;
     return this.http.post(EndPointRequest, methodParams);
   }
