@@ -12,12 +12,29 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <div class="col-md-10">
-      <a class="navbar-brand" href="#" style="color: white">Wiki Multimedia</a>
-    </div>
+    
+    <a class="navbar-brand" href="#" style="color: white">Wiki Multimedia</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse col-md-8" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Crear Semestre </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Crear Materia</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Crear Concepto</a>
+        </li>
+      </ul>
+    </div>   
     <div class="col-md-2">
       <button type="button" class="btn btn-light float-right" data-toggle="modal" data-target="#exampleModal">Iniciar
-        Sesión</button>
+        Sesión
+      </button>
     </div>
   </nav>
 
@@ -41,8 +58,8 @@
           </select>
         </div>
       </div>
-      <div class="row abs-center">
-        <div class="input-group col-md-6" style="padding-bottom: 20px;">
+      <div class="row">
+        <div class="input-group col-md-6 col-center" style="padding-bottom: 20px;margin: 0 auto;">
           <input type="text" class="form-control" placeholder="Concepto" aria-label="Concepto"
             aria-describedby="button-addon2">
           <div class="input-group-append">
