@@ -10,12 +10,12 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- 
+
   constructor(private apiService: AppService) {}
 
   login() {
-    this.loginSuccess({'userName' :"lherrera2",
-    'passWord' : "1234567"}).subscribe(operationResult => {
+    this.loginSuccess({userName : 'lherrera2',
+    passWord : '1234567'}).subscribe(operationResult => {
       console.log(operationResult);
     });
   }
