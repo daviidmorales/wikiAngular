@@ -18,126 +18,28 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     
-    <div class="collapse navbar-collapse col-md-8" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse col-md-8" id="navbarSupportedContent" >
+      <ul class="navbar-nav mr-auto" *ngIf="inicio == true">
         <li class="nav-item">
-          <a class="nav-link" href="#">Crear Semestre </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Crear Materia</a>
+          <a class="nav-link" [routerLink]="['/materia']">Crear Materia </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Crear Concepto</a>
         </li>
       </ul>
     </div>   
-    <div class="col-md-2">
+    <div class="col-md-2" *ngIf="inicio == false">
       <button type="button" class="btn btn-light float-right" data-toggle="modal" data-target="#exampleModal">Iniciar
         Sesión
       </button>
     </div>
+    <div class="col-md-2 usuario" *ngIf="inicio == true">
+      <span>{{ modelUsuario.firsName}}  {{modelUsuario.lastName}} </span>
+      <i class="fa fa-sign-out float-right" aria-hidden="true" title="Cerrar Sesión" (click)="logaut()"></i>
+    </div>
   </nav>
 
-  <section class="Filtros">
-    <div class="container">
-      <div class="row abs-center" style="padding-top: 22px;">
-        <div class="input-group col-md-3">
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Semestre..</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-        </div>
-        <div class="input-group col-md-3">
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Materia</option>
-            <option value="1">Diseño</option>
-            <option value="2">Dibujo</option>
-            <option value="3">Photoshop</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-group col-md-6 col-center" style="padding-bottom: 20px;margin: 0 auto;">
-          <input type="text" class="form-control" placeholder="Concepto" aria-label="Concepto"
-            aria-describedby="button-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button" id="button-addon2">
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section>
-    <h3 style="font-weight: bold">Resultados</h3>
-    <div class="row abs-center">
-      <div class="card w-75">
-        <div class="card-body">
-          <div class="col-md-10">
-            <h5 class="card-title">Multimedia</h5>
-            <p class="card-text">La Multimedia bla bla bla</p>
-          </div>
-          <div class="col-md-2">
-            <a href="#" class="btn btn-light float-right">Leer Mas</a>
-          </div>
-        </div>
-      </div>
-      <div class="card w-75">
-        <div class="card-body col-md-12">
-          <div class="col-md-10">
-            <h5 class="card-title">Multimedia</h5>
-            <p class="card-text">La Multimedia bla bla bla</p>
-          </div>
-          <div class="col-md-2">
-            <a href="#" class="btn btn-light float-right">Leer Mas</a>
-          </div>
-        </div>
-      </div>
-      <div class="card w-75">
-        <div class="card-body">
-          <div class="col-md-10">
-            <h5 class="card-title">Multimedia</h5>
-            <p class="card-text">La Multimedia bla bla bla</p>
-          </div>
-          <div class="col-md-2">
-            <a href="#" class="btn btn-light float-right">Leer Mas</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header bg-primary">
-          <h5 class="modal-title" id="exampleModalLabel" style="color:#fff">Iniciar Sesión</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="container">
-            <div class="row abs-center" style="padding: 15px">
-              <div class="form-group col-md-7">
-                <input type="text" class="form-control" placeholder="Tu Email *" value="" />
-              </div>
-              <div class="form-group col-md-7">
-                <input type="password" class="form-control" placeholder="Tu Password *" value="" />
-              </div>
-            </div>
-            <div class="row abs-center">
-              <input type="submit" class="btnSubmit bg-primary" value="Login" (click)="login()" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
   <footer class="page-footer font-small bg-primary">
 
     <!-- Copyright -->
@@ -146,6 +48,7 @@
     <!-- Copyright -->
 
   </footer>
+
 </body>
 
 </html>

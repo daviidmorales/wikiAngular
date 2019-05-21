@@ -31,7 +31,8 @@ export class AppService {
 
   Post(methodService: string, methodParams: object): Observable<any> {
     const EndPointRequest = `${this.endPointService}${methodService}`;
-    return this.http.post(EndPointRequest, methodParams);
+    const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
+    return this.http.post(EndPointRequest, methodParams, { headers });
   }
 
   Put(methodService: string, methodParams: object): Observable<any> {

@@ -3,7 +3,9 @@ import { Observable, throwError } from 'rxjs';
 import { AppService } from './app.service';
 import { catchError } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+declare var $: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,23 +13,26 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AppComponent {
 
-  constructor(private apiService: AppService) {}
+  usuario : string;
+  contrasena : string;
+  inicio : boolean = false;
+  modelUsuario : {};
 
-  login() {
-    this.loginSuccess({userName : 'lherrera2',
-    passWord : '1234567'}).subscribe(operationResult => {
-      console.log(operationResult);
-    });
+  constructor(private apiService: AppService,private toastr: ToastrService,private router:Router) {}
+
+  ngOnInit(){
+    debugger;
+    var user = localStorage.getItem("user");
+    if(user != null){
+      this.modelUsuario = JSON.parse(user);
+      this.inicio = true;
+    }
   }
-
-  loginSuccess(ObjectValue: any): Observable<any> {
-    return this.apiService.Post('users/login', ObjectValue).pipe(
-      catchError(this.handleError)
-    );
-  }
-
-  private handleError(err: HttpErrorResponse) {
-    return throwError(err);
+  logaut(){
+    localStorage.removeItem("user");
+    this.modelUsuario = {};
+    this.inicio = false;
+    this.router.navigate(['inicio']);
   }
 }
 

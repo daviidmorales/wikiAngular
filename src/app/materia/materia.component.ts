@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-materia',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MateriaComponent implements OnInit {
 
-  constructor() { }
+  inicio : boolean = false;
+  modelUsuario : {};
+  constructor(private router:Router) { }
 
-  ngOnInit() {
+  ngOnInit(){
+    debugger;
+    var user = localStorage.getItem("user");
+    if(user != null){
+      this.modelUsuario = JSON.parse(user);
+      this.inicio = true;
+    }else{
+      this.router.navigate(['inicio']);
+    }
   }
 
 }

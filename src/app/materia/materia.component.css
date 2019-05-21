@@ -1,0 +1,25 @@
+body{
+    background-image: url("../../assets/fondo.jpg") no-repeat center center;
+
+    /* nos aseguramos que el elemento ocupe toda la ventana del navegador */
+    min-height:100%;
+
+    /* Propiedad a utilizar para la imagen */
+    background-size:cover;
+}
+h3{
+    text-align: center;
+}
+form{
+    margin: 0 auto;
+}
+#Nombre{
+    margin-bottom: 5px;
+}
+.btnGuardar{
+    margin-bottom: 10px;
+}
+.table .thead-light th{
+    background-color: #463088 !important;
+    color: white;
+}
