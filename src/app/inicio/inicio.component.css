@@ -3,44 +3,98 @@
     align-items: center;
     justify-content: center;
     padding: 4px;
-  }
-  .Filtros{
-      background: rgb(195, 221, 252);
-      
-  }
-  h3{
-      text-align: center;
-  }
-  .btnSubmit
-  {
-    width: 50%;
-    border-radius: 1rem;
-    padding: 1.5%;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-  }
-  footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  .card{
-    background-color: #463088;
-    color: #fff;
-    -webkit-box-shadow: 0px 2px 14px -2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 2px 14px -2px rgba(0,0,0,0.75);
-    box-shadow: 0px 2px 14px -2px rgba(0,0,0,0.75);
-    margin: 5px;
-  }
-  .card-body{
-    display: inline-flex;
-    width: 100%;
-  }
-  .card-title{
-    font-weight: bold;
-  }
-  .row{
-    margin-right: 0px !important; 
-    margin-left: 0px !important;
-  }
+}
+.contenedor{
+    background: rgba(179,220,237,1);
+    background: -moz-linear-gradient(-45deg, rgba(179,220,237,1) 0%, rgba(118,204,233,1) 22%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 93%, rgba(188,224,238,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(179,220,237,1)), color-stop(22%, rgba(118,204,233,1)), color-stop(50%, rgba(41,184,229,1)), color-stop(93%, rgba(188,224,238,1)), color-stop(100%, rgba(188,224,238,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(179,220,237,1) 0%, rgba(118,204,233,1) 22%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 93%, rgba(188,224,238,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(179,220,237,1) 0%, rgba(118,204,233,1) 22%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 93%, rgba(188,224,238,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(179,220,237,1) 0%, rgba(118,204,233,1) 22%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 93%, rgba(188,224,238,1) 100%);
+    background: linear-gradient(135deg, rgba(179,220,237,1) 0%, rgba(118,204,233,1) 22%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 93%, rgba(188,224,238,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=1 );   
+}
+h3{
+    text-align: center;
+}
+.btnSubmit
+{
+  width: 50%;
+  border-radius: 1rem;
+  padding: 1.5%;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.card{
+  background-color: #463088;
+  color: #fff;
+  -webkit-box-shadow: 0px 2px 14px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 14px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 14px -2px rgba(0,0,0,0.75);
+  margin: 5px;
+}
+.card-body{
+  display: inline-flex;
+  width: 100%;
+}
+.card-title{
+  font-weight: bold;
+}
+.row{
+  margin-right: 0px !important; 
+  margin-left: 0px !important;
+}
+.vertical-menu {
+  width: 240px;
+  padding: 20px;
+}
+
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: rgb(57, 97, 231);
+}
+
+.vertical-menu a.active {
+  background-color: #e86b88;
+  color: white;
+}
+.vertical-menu-2 {
+  width: 300px;
+  padding: 20px;
+}
+
+.vertical-menu-2 a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu-2 div a:hover {
+  background-color: #e86b88
+}
+
+.vertical-menu-2 a.active-2 {
+  background-color: #244684;
+  color: white;
+}
+#resultados{
+  width: 800px;
+  padding: 20px;
+}
+#cajas{
+}

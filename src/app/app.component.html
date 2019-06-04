@@ -11,20 +11,20 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-light">
     
-    <a class="navbar-brand" href="#" style="color: white">Wiki Multimedia</a>
+    <a class="titulo col-md-3" href="#">Mi Encarta Multimedia</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     
-    <div class="collapse navbar-collapse col-md-8" id="navbarSupportedContent" >
+    <div class="collapse navbar-collapse col-md-7" id="navbarSupportedContent" >
       <ul class="navbar-nav mr-auto" *ngIf="inicio == true">
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/materia']">Crear Materia </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Crear Concepto</a>
+          <a class="nav-link" [routerLink]="['/concepto']">Crear Concepto</a>
         </li>
       </ul>
     </div>   
@@ -40,15 +40,7 @@
   </nav>
 
   <router-outlet></router-outlet>
-  <footer class="page-footer font-small bg-primary">
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2019 Copyright
-    </div>
-    <!-- Copyright -->
-
-  </footer>
-
+  
 </body>
 
 </html>

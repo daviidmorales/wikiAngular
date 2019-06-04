@@ -6,32 +6,40 @@
       </div>
       <form class="col-md-6">
         <div class="form-group">
-          <input type="text" class="form-control" id="Nombre" aria-describedby="emailHelp" placeholder="Ingrese Nombre">
-          <textarea class="form-control rounded-0" id="Descripcion" rows="3"
+          <input type="text" class="form-control" [(ngModel)]="nombreMateria" id="Nombre" name="Nombre" aria-describedby="emailHelp" placeholder="Ingrese Nombre">
+          <textarea class="form-control rounded-0" [(ngModel)]="descripcionMateria" id="Descripcion" name="Descripcion" rows="3"
             placeholder="Ingrese Descripción"></textarea>
+          <select class="custom-select" id="semestre" [(ngModel)]="opcionSeleccionado" [ngModelOptions]="{standalone: true}" (change)="capturar()">
+            <option value="0" selected>Semestre..</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
         </div>
-        <button type="submit" class="btn btn-primary float-right btnGuardar">Guardar</button>
+        <button type="submit" class="btn btn-primary float-right btnGuardar" (click)="addMateria()">Guardar</button>
       </form>
     </div>
     <div class="row">
       <table class="table table-bordered table-hover">
         <thead class="thead-light">
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Nombre</th>
             <th scope="col">Descripción</th>
+            <th scope="col">Semestre</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let item of modelMateria">
           <tr>
-            <th scope="row">1</th>
-            <td>Multimedia</td>
-            <td>La multimedia es bla bla bla</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Diseño</td>
-            <td>El diseño es bla bla bla</td>
+            <td>{{ item.nombreMateria }}</td>
+            <td>{{ item.descripcionMateria }}</td>
+            <td>{{ item.idSemestre }}</td>
           </tr>
         </tbody>
       </table>

@@ -1,75 +1,33 @@
-<section class="Filtros">
-    <div class="container">
-      <div class="row abs-center" style="padding-top: 22px;">
-        <div class="input-group col-md-3">
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Semestre..</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-        </div>
-        <div class="input-group col-md-3">
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Materia</option>
-            <option value="1">Diseño</option>
-            <option value="2">Dibujo</option>
-            <option value="3">Photoshop</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-group col-md-6 col-center" style="padding-bottom: 20px;margin: 0 auto;">
-          <input type="text" class="form-control" placeholder="Concepto" aria-label="Concepto"
-            aria-describedby="button-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button" id="button-addon2">
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
-        </div>
+<div class="contenedor">
+  <div class="row col-md-12">
+    <h3 class="col-md-12">Resultados</h3>
+  </div>
+  <div class="row">
+    <div class="vertical-menu">
+      <a  class="active">Semestres</a>
+      <a (click)="getMateria(1)">Uno</a>
+      <a (click)="getMateria(2)">Dos</a>
+      <a (click)="getMateria(3)">Tres</a>
+      <a (click)="getMateria(4)">Cuatro</a>
+      <a (click)="getMateria(5)">Cinco</a>
+      <a (click)="getMateria(6)">Seis</a>
+      <a (click)="getMateria(7)">Siete</a>
+      <a (click)="getMateria(8)">Ocho</a>
+      <a (click)="getMateria(9)">Nueve</a>
+      <a (click)="getMateria(10)">Diez</a>
+    </div>
+    <div class="vertical-menu-2" id="materias">
+      <a href="#" class="active-2">Materias</a>
+      <div *ngFor="let item of modelMateria">
+          <a href="#">{{ item.nombreMateria }}</a>
       </div>
     </div>
-  </section>
-  <section>
-    <h3 style="font-weight: bold">Resultados</h3>
-    <div class="row abs-center">
-      <div class="card w-75">
-        <div class="card-body">
-          <div class="col-md-10">
-            <h5 class="card-title">Multimedia</h5>
-            <p class="card-text">La Multimedia bla bla bla</p>
-          </div>
-          <div class="col-md-2">
-            <a href="#" class="btn btn-light float-right">Leer Mas</a>
-          </div>
-        </div>
-      </div>
-      <div class="card w-75">
-        <div class="card-body col-md-12">
-          <div class="col-md-10">
-            <h5 class="card-title">Multimedia</h5>
-            <p class="card-text">La Multimedia bla bla bla</p>
-          </div>
-          <div class="col-md-2">
-            <a href="#" class="btn btn-light float-right">Leer Mas</a>
-          </div>
-        </div>
-      </div>
-      <div class="card w-75">
-        <div class="card-body">
-          <div class="col-md-10">
-            <h5 class="card-title">Multimedia</h5>
-            <p class="card-text">La Multimedia bla bla bla</p>
-          </div>
-          <div class="col-md-2">
-            <a href="#" class="btn btn-light float-right">Leer Mas</a>
-          </div>
-        </div>
+    <div id="resultados">
+      <div id="cajas">
+          
       </div>
     </div>
-  </section>
-
+  </div>
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -87,7 +45,7 @@
                 <input type="text" class="form-control" [(ngModel)]="usuario" placeholder="Tu Usuario *" />
               </div>
               <div class="form-group col-md-7">
-                <input type="password" class="form-control" [(ngModel)]="contrasena" placeholder="Tu Password *"/>
+                <input type="password" class="form-control" [(ngModel)]="contrasena" placeholder="Tu Password *" />
               </div>
             </div>
             <div class="row abs-center">
@@ -98,3 +56,4 @@
       </div>
     </div>
   </div>
+</div>

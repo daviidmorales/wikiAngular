@@ -1,0 +1,47 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Concepto</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+            <label for="nombre">Nombre </label>
+            <input type="text" class="form-control col-md-5" [(ngModel)]="nombreConcepto" id="Nombre" name="Nombre" aria-describedby="emailHelp" placeholder="Ingrese Nombre">
+        </div>
+        <div class="form-group">
+            <label for="materia">Materia </label>
+            <br>
+            <select class="custom-select col-md-5" id="semestre" [(ngModel)]="opcionSeleccionado" [ngModelOptions]="{standalone: true}"
+            (change)="capturar()">
+              <option *ngFor="let item of modelMateria" selected [ngValue]="item.id">
+                {{item.nombreMateria}}
+              </option>
+          </select>
+        </div>
+      </div>
+      
+      <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
+      <button type="submit" class="btn btn-light float-right btnGuardar" style="margin: 0 auto;margin-top: 10px;margin-bottom: 10px;" (click)="addConcepto()">Guardar</button>
+    </div>
+    
+    <div class="row">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Materia</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of modelConcepto">
+          <tr>
+            <td>{{ item.nombreConcepto }}</td>
+            <td>{{ item.nombreMateria }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>

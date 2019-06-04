@@ -17,8 +17,9 @@ export class InicioComponent {
   contrasena : string;
   inicio : boolean = false;
   modelUsuario : {};
+  modelMateria : any = [];
 
-  constructor(private apiService: AppService,private toastr: ToastrService) {}
+  constructor(private apiService: AppService,private toastr: ToastrService ) {}
 
   ngOnInit(){
     var user = localStorage.getItem("user");
@@ -27,7 +28,7 @@ export class InicioComponent {
       this.inicio = true;
     }
   }
-
+  
   login() {
     this.loginSuccess({
       userName : this.usuario,
@@ -48,6 +49,24 @@ export class InicioComponent {
 
   loginSuccess(ObjectValue: any): Observable<any> {
     return this.apiService.Post('users/login', ObjectValue).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getMateria(semestre : any) {
+    this.getMateriaSuccess({
+      idSemestre : semestre
+    }).subscribe(operationResult => {
+      this.modelMateria = [];
+      if(operationResult.data.length > 0){
+        this.modelMateria = operationResult.data;
+      }else{
+        this.toastr.warning('El semestre '+semestre+' no tiene materias asignadas', 'Advertencia!');
+      } 
+    });
+  }
+  getMateriaSuccess(ObjectValue: any): Observable<any> {
+    return this.apiService.Post('materia/getMateriaSemestre', ObjectValue).pipe(
       catchError(this.handleError)
     );
   }
