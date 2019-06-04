@@ -24,6 +24,7 @@ export class ConceptoComponent  {
   opcionSeleccionado: string  = '0';
   idMateria: string  = '';
   nombreMateria : string = '';
+  fileSelect : File;
   constructor(private apiService: AppService,private toastr: ToastrService,private router:Router) {}
 
   ngOnInit(){
@@ -37,8 +38,10 @@ export class ConceptoComponent  {
       this.router.navigate(['inicio']);
     }
   }
+  fileChange(file : any){
+    this.fileSelect = file.target.files[0];
+  }
   capturar() {
-    debugger;
     this.idMateria = this.opcionSeleccionado;
   }
 
@@ -94,18 +97,21 @@ export class ConceptoComponent  {
     );
   }
   addConcepto() {
-    debugger;
     var id = this.idMateria;
     var nombreMateria = this.modelMateria.filter(function(item) {
       return item.id === id;
     })[0];
-    this.addConceptoSuccess({
-      id : "",
-      nombreConcepto : this.nombreConcepto,
-      idMateria : this.idMateria,
-      nombreMateria : nombreMateria.nombreMateria,
-      html : this.htmlContent
-    }).subscribe(operationResult => {
+
+    const formData = new FormData(); 
+    formData.append('file', this.fileSelect, this.fileSelect.name);
+    formData.append('id', "");
+    formData.append('nombreConcepto', this.nombreConcepto);
+    formData.append('idMateria', this.idMateria);
+    formData.append('nombreMateria', nombreMateria.nombreMateria);
+    formData.append('html', this.htmlContent);
+    formData.append('urlimage', "");
+    
+    this.addConceptoSuccess(formData).subscribe(operationResult => {
       this.toastr.success(operationResult.msg, 'Correctamente!');
       this.getConcepto();
     });
@@ -115,7 +121,6 @@ export class ConceptoComponent  {
       catchError(this.handleError)
     );
   }
-
   private handleError(err: HttpErrorResponse) {
     return throwError(err);
   }

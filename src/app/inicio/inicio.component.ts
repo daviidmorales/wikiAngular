@@ -18,6 +18,7 @@ export class InicioComponent {
   inicio : boolean = false;
   modelUsuario : {};
   modelMateria : any = [];
+  modelConcepto : any = [];
 
   constructor(private apiService: AppService,private toastr: ToastrService ) {}
 
@@ -58,6 +59,7 @@ export class InicioComponent {
       idSemestre : semestre
     }).subscribe(operationResult => {
       this.modelMateria = [];
+      this.modelConcepto = [];
       if(operationResult.data.length > 0){
         this.modelMateria = operationResult.data;
       }else{
@@ -71,6 +73,27 @@ export class InicioComponent {
     );
   }
 
+  getConcepto(materia : any) {
+    this.getConceptoSuccess({
+      idMateria : materia
+    }).subscribe(operationResult => {
+      if(operationResult.data.length > 0){
+        this.modelConcepto = operationResult.data;
+      }else{
+        this.modelConcepto = [];
+        this.toastr.warning('No hay conceptos asignados a la materia', 'Advertencia!');
+      } 
+    });
+  }
+  getConceptoSuccess(ObjectValue: any): Observable<any> {
+    return this.apiService.Post('concepto/getConceptoMateria', ObjectValue).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  mostrarHtml(item: any){
+    document.getElementById("html").innerHTML = item.html;
+  }
   private handleError(err: HttpErrorResponse) {
     return throwError(err);
   }

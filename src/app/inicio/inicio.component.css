@@ -97,4 +97,5 @@ footer{
   padding: 20px;
 }
 #cajas{
+  display: inline-flex;
 }
