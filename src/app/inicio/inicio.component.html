@@ -1,35 +1,45 @@
 <div class="contenedor">
-  <div class="row col-md-12">
-    <h3 class="col-md-12">Resultados</h3>
+  <div class="row semestres">
+    <div class="p-3 col-md-1"></div>
+    <div class="p-3 col-md-1 bg-primary text-white" title="Semetre 1" (click)="getMateria(1)">1</div>
+    <div class="p-3 col-md-1 bg-secondary text-white" title="Semetre 2" (click)="getMateria(2)">2</div>
+    <div class="p-3 col-md-1 bg-success text-white" title="Semetre 3" (click)="getMateria(3)">3</div>
+    <div class="p-3 col-md-1 bg-danger text-white" title="Semetre 4" (click)="getMateria(4)">4</div>
+    <div class="p-3 col-md-1 bg-warning text-dark" title="Semetre 5" (click)="getMateria(5)">5</div>
+    <div class="p-3 col-md-1 bg-info text-white" title="Semetre 6" (click)="getMateria(6)">6</div>
+    <div class="p-3 col-md-1 bg-light text-dark" title="Semetre 7" (click)="getMateria(7)">7</div>
+    <div class="p-3 col-md-1 bg-dark text-white" title="Semetre 8" (click)="getMateria(8)">8</div>
+    <div class="p-3 col-md-1 bg-white text-dark" title="Semetre 9" (click)="getMateria(9)">9</div>
+    <div class="p-3 col-md-1 bg-primary text-white" title="Semetre 10" (click)="getMateria(10)">10</div>
   </div>
-  <div class="row">
-    <div class="vertical-menu">
-      <a  class="active">Semestres</a>
-      <a (click)="getMateria(1)">Uno</a>
-      <a (click)="getMateria(2)">Dos</a>
-      <a (click)="getMateria(3)">Tres</a>
-      <a (click)="getMateria(4)">Cuatro</a>
-      <a (click)="getMateria(5)">Cinco</a>
-      <a (click)="getMateria(6)">Seis</a>
-      <a (click)="getMateria(7)">Siete</a>
-      <a (click)="getMateria(8)">Ocho</a>
-      <a (click)="getMateria(9)">Nueve</a>
-      <a (click)="getMateria(10)">Diez</a>
-    </div>
-    <div class="vertical-menu-2" id="materias">
-      <a href="#" class="active-2">Materias</a>
-      <div *ngFor="let item of modelMateria">
-          <a (click)="getConcepto(item.id)" >{{ item.nombreMateria }}</a>
+  <div class="row" *ngIf="mostrarConcepto == false">
+    <div class="col-md-11 materias">
+      <div *ngFor="let item of modelMateria" class="div-materias p-3 col-md-3"
+        [ngStyle]="{'background-image': 'url(' + item.urlimage + ')'}">
+        <div class="eliminar-imagen" (click)="deleteMateria(item);"><i class="fas fa-close"></i></div>
+        <div class="titulo-imagen" style="position: absolute;">{{item.nombreMateria }}</div>
+        <!-- <img src="{{item.urlimage}}" class="imagenesMaterias" data-toggle="modal" data-target="#exampleModal2"
+          (click)="mostrarHtml(item)"> -->
       </div>
     </div>
     <div id="resultados">
       <div id="cajas">
         <div *ngFor="let item of modelConcepto">
-            <div class="col-md-2">
-              <div class="col-md-2" style="text-align: center;font-weight: bold;">{{ item.nombreConcepto }}</div>
-              <div><img data-toggle="modal" data-target="#exampleModal2" (click)="mostrarHtml(item)" [src]="item.urlimage" alt="" style="width: 100px;"></div>
-            </div>
+          <div class="col-md-2">
+            <div class="col-md-2" style="text-align: center;font-weight: bold;">{{ item.nombreConcepto }}</div>
+            <div><img data-toggle="modal" data-target="#exampleModal2" (click)="mostrarHtml(item)" [src]="item.urlimage"
+                alt="" style="width: 100px;"></div>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="mostrarConcepto == true">
+    <div class="col-md-11 materias">
+      <div *ngFor="let item of modelConcepto" class="div-materias p-3 col-md-3">
+        <div class="eliminar-imagen" (click)="deleteMateria(item);"><i class="fas fa-close"></i></div>
+        <img src="{{item.urlimage}}" class="imagenesMaterias" data-toggle="modal" data-target="#exampleModal2"
+          (click)="mostrarHtml(item)">
       </div>
     </div>
   </div>
@@ -37,7 +47,7 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header bg-primary">
+        <div class="modal-header bg-danger">
           <h5 class="modal-title" id="exampleModalLabel" style="color:#fff">Iniciar Sesión</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -61,8 +71,8 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" style="width: 100%;" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
-    aria-hidden="true">
+  <div class="modal fade" style="width: 100%;" id="exampleModal2" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header bg-primary">

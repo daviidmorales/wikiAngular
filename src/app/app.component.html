@@ -11,36 +11,50 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light">
-    
-    <a class="titulo col-md-3" href="#">Mi Encarta Multimedia</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse col-md-7" id="navbarSupportedContent" >
-      <ul class="navbar-nav mr-auto" *ngIf="inicio == true">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/materia']">Crear Materia </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/concepto']">Crear Concepto</a>
-        </li>
-      </ul>
-    </div>   
+  <nav class="navbar navbar-expand-lg navbar-light col-md-12">
+    <div class="col-md-1">
+      <a class="titulo" href="#"><i class="fas fa-cloud-meatball icono-inicio"></i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group col-md-12">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+        </div>
+        <input type="text" class="form-control input-materia" placeholder="Buscar Materia"
+          aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="collapse navbar-collapse col-md-12" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" *ngIf="inicio == true">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/materia']">Crear Materia </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/concepto']">Crear Concepto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-1" *ngIf="inicio == true">
+        <span><i class="fas fa-user-tie icono-user"></i>{{ modelUsuario.firsName}}</span>
+    </div>
+    <div class="col-md-1" *ngIf="inicio == true">
+        <i class="fa fa-sign-out float-right icono-cerrar-sesion" aria-hidden="true" title="Cerrar Sesión" (click)="logaut()"></i>
+    </div>
     <div class="col-md-2" *ngIf="inicio == false">
       <button type="button" class="btn btn-light float-right" data-toggle="modal" data-target="#exampleModal">Iniciar
         Sesión
       </button>
     </div>
-    <div class="col-md-2 usuario" *ngIf="inicio == true">
-      <span>{{ modelUsuario.firsName}}  {{modelUsuario.lastName}} </span>
-      <i class="fa fa-sign-out float-right" aria-hidden="true" title="Cerrar Sesión" (click)="logaut()"></i>
-    </div>
   </nav>
 
   <router-outlet></router-outlet>
-  
+
 </body>
 
 </html>

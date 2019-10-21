@@ -19,7 +19,7 @@ export class InicioComponent {
   modelUsuario : {};
   modelMateria : any = [];
   modelConcepto : any = [];
-
+  mostrarConcepto = false;
   constructor(private apiService: AppService,private toastr: ToastrService ) {}
 
   ngOnInit(){
@@ -61,6 +61,7 @@ export class InicioComponent {
       this.modelMateria = [];
       this.modelConcepto = [];
       if(operationResult.data.length > 0){
+        this.mostrarConcepto = false;
         this.modelMateria = operationResult.data;
       }else{
         this.toastr.warning('El semestre '+semestre+' no tiene materias asignadas', 'Advertencia!');
@@ -72,12 +73,27 @@ export class InicioComponent {
       catchError(this.handleError)
     );
   }
+  deleteMateria(item : any) {
+    this.deleteMateriaSuccess({
+      id : item.id
+    }).subscribe(operationResult => {
+      this.getMateria(item.idSemestre);
+        this.toastr.success('La materia '+item.nombreMateria+' fue elimiada', 'Exito!');
+      
+    });
+  }
+  deleteMateriaSuccess(ObjectValue: any): Observable<any> {
+    return this.apiService.Delete('materia/deleteMateriaSemestre', ObjectValue).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   getConcepto(materia : any) {
     this.getConceptoSuccess({
       idMateria : materia
     }).subscribe(operationResult => {
       if(operationResult.data.length > 0){
+        this.mostrarConcepto = true;
         this.modelConcepto = operationResult.data;
       }else{
         this.modelConcepto = [];

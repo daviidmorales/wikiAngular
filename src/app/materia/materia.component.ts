@@ -21,6 +21,7 @@ export class MateriaComponent{
   descripcionMateria : string;
   opcionSeleccionado: string  = '0';
   idSemestre: string  = '';
+  fileSelect : File;
   constructor(private apiService: AppService,private toastr: ToastrService,private router:Router) {}
 
   ngOnInit(){
@@ -48,17 +49,22 @@ export class MateriaComponent{
       catchError(this.handleError)
     );
   }
-
+  fileChange(file : any){
+    this.fileSelect = file.target.files[0];
+  }
   capturar() {
     this.idSemestre = this.opcionSeleccionado;
   }
   addMateria() {
-    this.addMateriaSuccess({
-      id : "",
-      nombreMateria : this.nombreMateria,
-      descripcionMateria : this.descripcionMateria,
-      idSemestre : this.idSemestre
-    }).subscribe(operationResult => {
+    const formData = new FormData();
+    formData.append('file', this.fileSelect, this.fileSelect.name);
+    formData.append('id', "");
+    formData.append('nombreMateria', this.nombreMateria);
+    formData.append('descripcionMateria', this.descripcionMateria);
+    formData.append('idSemestre', this.idSemestre);
+    formData.append('urlimage', "");
+    
+    this.addMateriaSuccess(formData).subscribe(operationResult => {
       this.toastr.success(operationResult.msg, 'Correctamente!');
       this.getMateria();
     });

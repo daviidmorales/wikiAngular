@@ -12,7 +12,7 @@
             <input type="text" class="form-control col-md-5" [(ngModel)]="nombreConcepto" id="Nombre" name="Nombre" aria-describedby="emailHelp" placeholder="Ingrese Nombre">
         </div>
         <div class="form-group">
-          <label for="lDocumento">Documento :</label>
+          <label for="lDocumento">Icono :</label>
           <input type="file" id="file" class="form-control-file col-md-5" (change)="fileChange($event)" id="lDocumento">
         </div>
         <div class="form-group">
@@ -28,10 +28,10 @@
       </div>
       
       <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
-      <button type="submit" class="btn btn-light float-right btnGuardar" style="margin: 0 auto;margin-top: 10px;margin-bottom: 10px;" (click)="addConcepto()">Guardar</button>
+      <button type="submit" class="btn btn-danger float-right btnGuardar" style="margin: 0 auto;margin-top: 10px;margin-bottom: 10px;" (click)="addConcepto()">Guardar</button>
     </div>
     
-    <div class="row">
+    <!-- <div class="row">
       <table class="table table-bordered table-hover">
         <thead class="thead-light">
           <tr>
@@ -46,6 +46,6 @@
           </tr>
         </tbody>
       </table>
-    </div>
+    </div> -->
   </div>
 </body>

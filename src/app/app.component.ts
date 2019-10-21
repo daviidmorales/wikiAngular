@@ -21,7 +21,6 @@ export class AppComponent {
   constructor(private apiService: AppService,private toastr: ToastrService,private router:Router) {}
 
   ngOnInit(){
-    debugger;
     var user = localStorage.getItem("user");
     if(user != null){
       this.modelUsuario = JSON.parse(user);
